@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Site Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="text-gray-900 bg-gradient-to-b from-yellow-400 to-yellow-600">
+    <!-- Menu -->
+    <header
+      class="flex justify-between items-center p-6 fixed w-full bg-yellow-400 shadow-md z-50"
+    >
+      <h1 class="text-2xl font-bold">Mon Site</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#about" class="hover:text-white">À propos</a></li>
+          <li><a href="#services" class="hover:text-white">Services</a></li>
+          <li><a href="#gallery" class="hover:text-white">Galerie</a></li>
+          <li><a href="#carousel" class="hover:text-white">Projets</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="flex flex-col items-center justify-center text-center h-[80vh] px-6 relative bg-cover bg-center"
+      style="background-image: url('images/hero-bg.jpg')"
+    >
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+          Bienvenue sur mon site
+        </h2>
+        <p class="mt-4 text-lg text-white drop-shadow-lg">
+          Un site moderne avec galerie et carrousel
+        </p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="p-12 text-center bg-white">
+      <h2 class="text-3xl font-bold mb-4">À propos</h2>
+      <p class="max-w-2xl mx-auto text-lg">
+        Voici une section de présentation de ton site. Tu peux y ajouter ton
+        parcours, tes compétences ou la mission de ton projet.
+      </p>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="p-12 bg-yellow-100 text-center">
+      <h2 class="text-3xl font-bold mb-4">Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Service 1</h3>
+          <p>Description du service 1.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Service 2</h3>
+          <p>Description du service 2.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-bold mb-2">Service 3</h3>
+          <p>Description du service 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section id="gallery" class="p-12 bg-white text-center">
+      <h2 class="text-3xl font-bold mb-6">Galerie</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <img src="images/photo1.jpg" alt="Projet 1" class="rounded-2xl shadow-md" />
+        <img src="images/photo2.jpg" alt="Projet 2" class="rounded-2xl shadow-md" />
+        <img src="images/photo3.jpg" alt="Projet 3" class="rounded-2xl shadow-md" />
+      </div>
+    </section>
+
+    <!-- Carrousel simple -->
+    <section id="carousel" class="p-12 bg-yellow-100 text-center">
+      <h2 class="text-3xl font-bold mb-6">Carrousel</h2>
+      <div class="max-w-xl mx-auto">
+        <img id="carousel-img" src="images/photo1.jpg" alt="Carrousel" class="rounded-2xl shadow-md w-full" />
+        <div class="flex justify-center space-x-4 mt-4">
+          <button onclick="showSlide(0)" class="px-4 py-2 bg-yellow-400 rounded-lg">1</button>
+          <button onclick="showSlide(1)" class="px-4 py-2 bg-yellow-400 rounded-lg">2</button>
+          <button onclick="showSlide(2)" class="px-4 py-2 bg-yellow-400 rounded-lg">3</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="p-12 bg-white text-center">
+      <h2 class="text-3xl font-bold mb-6">Contact</h2>
+      <form class="max-w-md mx-auto space-y-4">
+        <input type="text" placeholder="Nom" class="w-full p-3 border rounded-lg" />
+        <input type="email" placeholder="Email" class="w-full p-3 border rounded-lg" />
+        <textarea placeholder="Message" class="w-full p-3 border rounded-lg"></textarea>
+        <button type="submit" class="px-6 py-3 bg-yellow-400 rounded-lg font-bold hover:bg-yellow-500">
+          Envoyer
+        </button>
+      </form>
+    </section>
+
+    <!-- Script carrousel -->
+    <script>
+      const images = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg"];
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        currentIndex = index;
+        document.getElementById("carousel-img").src = images[currentIndex];
+      }
+
+      // défilement automatique toutes les 3 secondes
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        document.getElementById("carousel-img").src = images[currentIndex];
+      }, 3000);
+    </script>
+  </body>
+</html>
